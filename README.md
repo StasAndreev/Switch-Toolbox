@@ -1,5 +1,9 @@
 # Switch-Toolbox
-A tool to edit many formats of Nintendo Switch, 3DS and Wii U. 
+A tool to edit many formats of Nintendo Switch, 3DS and Wii U.
+
+## Fork information
+Saves animation frame count and loop value when replacing animations with .anim format.
+(All the rest of readme is original)
 
 ## Notice
 
