@@ -307,7 +307,7 @@ namespace Bfres.Structs
             }
             else if (ext == ".anim")
             {
-                 FromAnim(FileName);
+                 FromAnim(FileName, CanLoop, FrameCount);
             }
             else if (ext == ".seanim")
             {
@@ -848,19 +848,23 @@ namespace Bfres.Structs
             Initialize();
         }
 
-        public void FromAnim(string FileName)
+        public void FromAnim(string FileName, bool canLoop, int frameCount)
         {
             if (SkeletalAnimU != null)
             {
                 var SkeletalAnimNX = BrawlboxHelper.FSKAConverter.Anim2Fska(FileName);
                 SkeletalAnimU = BfresPlatformConverter.FSKAConvertSwitchToWiiU(SkeletalAnimNX);
                 SkeletalAnimU.Name = Text;
+                SkeletalAnimU.Loop = canLoop;
+                SkeletalAnimU.FrameCount = FrameCount;
                 LoadAnim(SkeletalAnimU);
             }
             else
             {
                 SkeletalAnim = BrawlboxHelper.FSKAConverter.Anim2Fska(FileName);
                 SkeletalAnim.Name = Text;
+                SkeletalAnim.Loop = canLoop;
+                SkeletalAnim.FrameCount = FrameCount;
                 LoadAnim(SkeletalAnim);
             }
         }
